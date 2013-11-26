@@ -41,5 +41,13 @@ public final class CompSystem {
 	public void setHardDrive(Component hd2) {
 		parts.add(hd2);
 	}
+	
+	//test method for string
+	public String getTestString()
+	{
+		String testString;
+		testString = "testing";
+		return testString;
+	}
 
 }

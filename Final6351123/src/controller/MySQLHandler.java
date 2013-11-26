@@ -11,6 +11,7 @@ import backend.HardDrive;
 import backend.Memory;
 import backend.Processor;
 import backend.Recommendation;
+import com.sandsness.report.*;
 
 public class MySQLHandler implements InputHandler {
 
@@ -65,10 +66,13 @@ public class MySQLHandler implements InputHandler {
 			p.setMinScore(minScore);
 			p.setRating(score);
 			computer.setProcessor(p);
+			
+			//print processor rating
 			System.out.printf(
 					"Your processor has %.2f overall rating on 0 to 100 scale",
 					p.getRating());
-			System.out.println();
+			System.out.println(); //print blank line
+			
 			r.setRecommendedProcessors(score, skt, indexChipset, connection, statement);
 		}
 	}
