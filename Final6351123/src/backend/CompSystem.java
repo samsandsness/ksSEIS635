@@ -42,7 +42,7 @@ public final class CompSystem {
 		parts.add(hd2);
 	}
 	
-	//test method for string
+	//test method for string printing on reporting functions.
 	public String getTestString()
 	{
 		String testString;

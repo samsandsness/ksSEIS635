@@ -4,6 +4,7 @@ import java.awt.*;
 import javax.swing.*;
 
 import backend.CompSystem;
+import backend.Recommendation;
 
 
 public class Display
@@ -12,6 +13,7 @@ public class Display
 	JFrame display = new JFrame();
 	JTextArea textArea = new JTextArea();
 	CompSystem selectedSystem = new CompSystem();
+	Recommendation recParts = new Recommendation();
 	
 	public Display (String label, String text)
 	{
@@ -34,6 +36,8 @@ public class Display
 	
 	public void printReport()
 	{
+		//ratings reported. Most of these are from the Recommendation class.
+		
 		
 		addText(selectedSystem.getTestString() + "\n");
 		
@@ -61,10 +65,13 @@ public class Display
 		addText("overall rating on 0 to 100 scale\n");
 		addText("Here are the memory options you can use for upgrade:\n");
 		
+		
+		//overall rating. this is currently printing from the CompSystem class.
 		addText("your overall system rating is: ");
 		//addText(system rating value);
 		addText("on 0 to 100 scale.\n");
 		
+		//original printed report.
 		/*
 
 		Your processor

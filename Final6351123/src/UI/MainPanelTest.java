@@ -10,13 +10,15 @@ import java.util.List;
 
 import UI.MainPanel;
 
-public class MainPanelTest implements DBtype{
+public class MainPanelTest implements DBtype
+{
 	static final String DATABASE_URL = "jdbc:mysql://localhost/compsystem";
 	private static Connection connection;
 	private static Statement statement;
 	private static ResultSet resultset;
 	
-	public void showPanel() throws SQLException {
+	public void showPanel() throws SQLException 
+	{
 
 		MainPanel testMainPanel = new MainPanel("test");
 		
@@ -61,6 +63,6 @@ public class MainPanelTest implements DBtype{
      
 	}
 
-		}
+	}
 	
 
