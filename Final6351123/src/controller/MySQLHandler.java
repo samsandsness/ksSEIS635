@@ -1,18 +1,14 @@
-
-
-
 package controller;
 
 import java.sql.*;
 
+import UI.Display;
 import backend.CompSystem;
 import backend.Component;
 import backend.HardDrive;
 import backend.Memory;
 import backend.Processor;
 import backend.Recommendation;
-
-import com.sandsness.report.*;
 
 public class MySQLHandler implements InputHandler {
 
@@ -22,13 +18,6 @@ public class MySQLHandler implements InputHandler {
 	private static ResultSet resultset;
 	private static CompSystem computer;
 	private Recommendation r = new Recommendation();
-//	private Display display = new Display("label", "text");
-
-	public Recommendation getClassRecommendation()
-	{
-		return r;
-	}
-	
 	public void setProcessor(int indexProcessor, int indexChipset) throws SQLException {
 
 		String desc;
@@ -73,21 +62,16 @@ public class MySQLHandler implements InputHandler {
 			p.setMinScore(minScore);
 			p.setRating(score);
 			computer.setProcessor(p);
-			
-			Display.addText("testing the display class in MySQLHandler");
-			
-			//print processor rating
 			System.out.printf(
 					"Your processor has %.2f overall rating on 0 to 100 scale",
 					p.getRating());
-			System.out.println(); //print blank line
-			
+			System.out.println();
 			r.setRecommendedProcessors(score, skt, indexChipset, connection, statement);
 		}
 	}
 	
 	public void setHardDrive(int index) throws SQLException {
-		System.out.println("debug: set hard drive method called");
+
 		String desc;
 		int score = 0;
 		int maxScore = 0;
@@ -130,8 +114,7 @@ public class MySQLHandler implements InputHandler {
 	}
 
 	public void setMemory(int index) throws SQLException {
-		System.out.println("debug: set memory method called");
-		
+
 		String desc;
 		int speed = 0;
 		int maxScore = 0;
@@ -141,7 +124,6 @@ public class MySQLHandler implements InputHandler {
 				+ "speed FROM memory where id =" + index + "");
 
 		if (resultset.next()) {
-			System.out.println("if statement in setMemory executed");
 			desc = resultset.getString(1);
 			capacity = resultset.getInt(2);
 			speed = resultset.getInt(3);
@@ -163,9 +145,6 @@ public class MySQLHandler implements InputHandler {
 			mem.setRating(speed);
 			computer.setMemory(mem);
 
-			
-			System.out.println("your MEMORY is:");
-			System.out.println(desc);
 			System.out.printf(
 					"Your memory has %.2f overall rating on 0 to 100 scale",
 					mem.getRating());
@@ -173,8 +152,8 @@ public class MySQLHandler implements InputHandler {
 		 }
 		r.setRecommendedMemory(speed, connection, statement);
 		computer.setRating();
+		new Display(computer, r);
 	   }
-
-
+   
 	}
 

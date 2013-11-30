@@ -6,7 +6,7 @@ import java.util.List;
 public final class CompSystem {
 
 	
-	private static List<Component>parts = new ArrayList <Component>();
+	private List<Component>parts = new ArrayList <Component>();
 	private float rating;
 
 
@@ -25,7 +25,7 @@ public final class CompSystem {
 	}
 
 
-	public static List <Component> getParts() {
+	public List <Component> getParts() {
 		return parts;
 	}
 
@@ -40,14 +40,6 @@ public final class CompSystem {
 
 	public void setHardDrive(Component hd2) {
 		parts.add(hd2);
-	}
-	
-	//test method for string printing on reporting functions.
-	public String getTestString()
-	{
-		String testString;
-		testString = "testing";
-		return testString;
 	}
 
 }

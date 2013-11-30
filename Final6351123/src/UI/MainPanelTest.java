@@ -8,21 +8,18 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.sandsness.report.Display;
-
 import UI.MainPanel;
 
-public class MainPanelTest implements DBtype
-{
+public class MainPanelTest implements DBtype{
 	static final String DATABASE_URL = "jdbc:mysql://localhost/compsystem";
 	private static Connection connection;
 	private static Statement statement;
 	private static ResultSet resultset;
+	MainPanel testMainPanel = new MainPanel("test");
 	
-	public void showPanel() throws SQLException 
-	{
+	public void showPanel() throws SQLException {
 
-		MainPanel testMainPanel = new MainPanel("test");
+		
 		
 		// create array lists and populate with values
 		List<String> processorsDropdown = new ArrayList<String>();
@@ -53,18 +50,22 @@ public class MainPanelTest implements DBtype
 			desc = resultset.getString(1);
 			memoryDropdown.add(desc);
 		}
-
+		
 		MainPanel.processorSelect.setValues(processorsDropdown);
 		testMainPanel.memorySelect.setValues(memoryDropdown);
 		testMainPanel.hardDriveSelect.setValues(hdDropdown);
 		MainPanel.processorSelect.initialValues();		
 		MainPanel.chipSetSelect.setValues(testMainPanel.processorSelect.getPlaceholderChipset());
-	
-		testMainPanel.setSize(800, 250);
+		
+    	testMainPanel.setSize(800, 250);
+	//	testMainPanel.setItself(testMainPanel);
         MainPanel.processorSelect.setDropDownIndex();
-     
+        
 	}
 
+	public void output(){
+	 testMainPanel.configureOutput();
 	}
+		}
 	
 
