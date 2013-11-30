@@ -8,8 +8,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.sandsness.report.Display;
-
 import UI.MainPanel;
 
 public class MainPanelTest implements DBtype
@@ -18,8 +16,6 @@ public class MainPanelTest implements DBtype
 	private static Connection connection;
 	private static Statement statement;
 	private static ResultSet resultset;
-//	Display display = new Display(); //need to add arguements
-	
 	
 	public void showPanel() throws SQLException 
 	{

@@ -9,25 +9,22 @@ import backend.Recommendation;
 
 public class Display
 {
-//	static String tempString = new String();
+	static String temp = new String();
 	JFrame display = new JFrame();
 	JTextArea textArea = new JTextArea();
-	CompSystem selectedSystem;
-	Recommendation recParts;
+	CompSystem selectedSystem = new CompSystem();
+	Recommendation recParts = new Recommendation();
 	
-	public Display (CompSystem selectedSystem, 
-			Recommendation recParts)
+	public Display (String label, String text)
 	{
-		this.selectedSystem = selectedSystem;
-		this.recParts = recParts;
 		
-		//create display
 		display.setVisible(true);
 		display.setSize(500,500);
 		display.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		display.add(textArea);
 //		textArea.setText("Hello this is the text string \n");
-//		tempString = textArea.getText();
+		temp = textArea.getText();
 //		textArea.append("more");
 	}
 	
