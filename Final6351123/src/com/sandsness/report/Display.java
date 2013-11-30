@@ -1,19 +1,26 @@
 package com.sandsness.report;
 import java.awt.*;
+import java.util.List;
 
 import javax.swing.*;
 
 import backend.CompSystem;
-import backend.Recommendation;
+import backend.Component;
+import backend.CompSystem.*;
+import backend.Recommendation.*;
 
 
 public class Display
 {
 	static String temp = new String();
 	JFrame display = new JFrame();
-	JTextArea textArea = new JTextArea();
-	CompSystem selectedSystem = new CompSystem();
-	Recommendation recParts = new Recommendation();
+	static JTextArea textArea = new JTextArea();
+	List<Component>selectedParts;
+	Component selectedProcessor;
+	Component selectedHardDrive;
+	Component testComponent3;
+//	CompSystem selectedSystem = new CompSystem();
+//	Recommendation recParts = new Recommendation();
 	
 	public Display (String label, String text)
 	{
@@ -28,34 +35,45 @@ public class Display
 //		textArea.append("more");
 	}
 	
-	public void addText(String newText)
+	public static void addText(String newText)
 	{
-		this.textArea.append(newText);
+		textArea.append(newText);
 	}
 	
 	
 	public void printReport()
 	{
 		//ratings reported. Most of these are from the Recommendation class.
+		selectedParts = CompSystem.getParts();
+		selectedProcessor = selectedParts.get(0);
+
 		
+		selectedHardDrive = selectedParts.get(1);
 		
-		addText(selectedSystem.getTestString() + "\n");
+//		testComponent3 = selectedParts.get(2);
+//		addText(testComponent3.getDescription());
+//		addText("" + (testComponent3.getRating()));
+
+//		addText(selectedSystem.getTestString() + "\n");
 		
 		//print out processor selected information
 		addText("\nYour processor is ");
-		//addText(processor description);
+		addText(selectedProcessor.getDescription());
 		addText("\nYour processor has ");
-		//addText(processor rating);
+		addText("" + (selectedProcessor.getRating()));
 		addText("overall rating on 0 to 100 scale\n");
 		addText("Here are the processors you can use for upgrade:\n");
+		//print out array list of processor descriptions from recommendation class
+		
 		
 		//print out hard drive selected information
 		addText("\nYour hard drive is ");
-		//addText(hard drive description);
+		addText(selectedHardDrive.getDescription());
 		addText("\nYour hard drive has ");
-		//addText(hard drive rating);
+		addText("" + (selectedHardDrive.getRating()));
 		addText("overall rating on 0 to 100 scale\n");
 		addText("Here are the hard drives you can use for upgrade:\n");
+		//print out array list of hard drive descriptions from recommendation class
 		
 		//print out memory selected information
 		addText("\nYour memory is ");

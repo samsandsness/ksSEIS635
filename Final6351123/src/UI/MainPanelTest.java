@@ -8,6 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.sandsness.report.Display;
+
 import UI.MainPanel;
 
 public class MainPanelTest implements DBtype
@@ -26,6 +28,7 @@ public class MainPanelTest implements DBtype
 		List<String> processorsDropdown = new ArrayList<String>();
 		List<String> hdDropdown = new ArrayList<String>();
 		List<String> memoryDropdown = new ArrayList<String>();
+		Display display = new Display("text", "text");
 	
 		connection = DriverManager
 				.getConnection(DATABASE_URL, "Pavel", "12345");

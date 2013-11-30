@@ -11,6 +11,7 @@ import backend.HardDrive;
 import backend.Memory;
 import backend.Processor;
 import backend.Recommendation;
+
 import com.sandsness.report.*;
 
 public class MySQLHandler implements InputHandler {
@@ -21,6 +22,7 @@ public class MySQLHandler implements InputHandler {
 	private static ResultSet resultset;
 	private static CompSystem computer;
 	private Recommendation r = new Recommendation();
+//	private Display display = new Display("label", "text");
 
 	public void setProcessor(int indexProcessor, int indexChipset) throws SQLException {
 
@@ -66,6 +68,8 @@ public class MySQLHandler implements InputHandler {
 			p.setMinScore(minScore);
 			p.setRating(score);
 			computer.setProcessor(p);
+			
+			Display.addText("testing the display class in MySQLHandler");
 			
 			//print processor rating
 			System.out.printf(

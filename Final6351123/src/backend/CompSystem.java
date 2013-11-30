@@ -6,7 +6,7 @@ import java.util.List;
 public final class CompSystem {
 
 	
-	private List<Component>parts = new ArrayList <Component>();
+	private static List<Component>parts = new ArrayList <Component>();
 	private float rating;
 
 
@@ -25,7 +25,7 @@ public final class CompSystem {
 	}
 
 
-	public List <Component> getParts() {
+	public static List <Component> getParts() {
 		return parts;
 	}
 

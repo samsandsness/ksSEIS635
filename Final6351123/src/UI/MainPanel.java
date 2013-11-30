@@ -5,10 +5,13 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import com.sandsness.report.Display;
 
 import controller.InputHandler;
 import controller.MySQLHandler;
@@ -21,6 +24,7 @@ public class MainPanel extends JFrame {
 	ComponentSelect memorySelect = new ComponentSelect("Memory");
 	static ComponentSelect chipSetSelect = new ComponentSelect("Chipset");
 	JButton button1 = new JButton();
+	Display anotherDisplay = new Display("text", "");
 
 	// constructor
 	public MainPanel(String windowLabel) {
@@ -48,7 +52,9 @@ public class MainPanel extends JFrame {
 
 			} catch (SQLException e1) {
 				e1.printStackTrace();
-			}
+			}//end try catch
+			
+			anotherDisplay.printReport();
 		}// end method action performed
 
 	}// end private class ListenForButton
