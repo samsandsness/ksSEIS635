@@ -28,7 +28,6 @@ public class MainPanelTest implements DBtype
 		List<String> processorsDropdown = new ArrayList<String>();
 		List<String> hdDropdown = new ArrayList<String>();
 		List<String> memoryDropdown = new ArrayList<String>();
-		Display display = new Display("text", "text");
 	
 		connection = DriverManager
 				.getConnection(DATABASE_URL, "Pavel", "12345");

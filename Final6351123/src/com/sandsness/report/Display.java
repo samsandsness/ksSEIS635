@@ -18,7 +18,7 @@ public class Display
 	List<Component>selectedParts;
 	Component selectedProcessor;
 	Component selectedHardDrive;
-	Component testComponent3;
+	Component selectedMemory;
 //	CompSystem selectedSystem = new CompSystem();
 //	Recommendation recParts = new Recommendation();
 	
@@ -45,14 +45,16 @@ public class Display
 	{
 		//ratings reported. Most of these are from the Recommendation class.
 		selectedParts = CompSystem.getParts();
+		addText("" + selectedParts.size());
 		selectedProcessor = selectedParts.get(0);
-
-		
 		selectedHardDrive = selectedParts.get(1);
 		
-//		testComponent3 = selectedParts.get(2);
-//		addText(testComponent3.getDescription());
-//		addText("" + (testComponent3.getRating()));
+		//getting values for memory is throwing an exception.
+//		selectedMemory = selectedParts.get(2);
+//		
+//		
+//		addText(selectedMemory.getDescription());
+//		addText("" + (selectedMemory.getRating()));
 
 //		addText(selectedSystem.getTestString() + "\n");
 		

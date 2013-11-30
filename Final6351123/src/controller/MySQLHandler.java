@@ -82,7 +82,7 @@ public class MySQLHandler implements InputHandler {
 	}
 	
 	public void setHardDrive(int index) throws SQLException {
-
+		System.out.println("debug: set hard drive method called");
 		String desc;
 		int score = 0;
 		int maxScore = 0;
@@ -125,7 +125,8 @@ public class MySQLHandler implements InputHandler {
 	}
 
 	public void setMemory(int index) throws SQLException {
-
+		System.out.println("debug: set memory method called");
+		
 		String desc;
 		int speed = 0;
 		int maxScore = 0;
@@ -156,6 +157,9 @@ public class MySQLHandler implements InputHandler {
 			mem.setRating(speed);
 			computer.setMemory(mem);
 
+			
+			System.out.println("your MEMORY is:");
+			System.out.println(desc);
 			System.out.printf(
 					"Your memory has %.2f overall rating on 0 to 100 scale",
 					mem.getRating());
