@@ -24,6 +24,11 @@ public class MySQLHandler implements InputHandler {
 	private Recommendation r = new Recommendation();
 //	private Display display = new Display("label", "text");
 
+	public Recommendation getClassRecommendation()
+	{
+		return r;
+	}
+	
 	public void setProcessor(int indexProcessor, int indexChipset) throws SQLException {
 
 		String desc;
@@ -136,6 +141,7 @@ public class MySQLHandler implements InputHandler {
 				+ "speed FROM memory where id =" + index + "");
 
 		if (resultset.next()) {
+			System.out.println("if statement in setMemory executed");
 			desc = resultset.getString(1);
 			capacity = resultset.getInt(2);
 			speed = resultset.getInt(3);
