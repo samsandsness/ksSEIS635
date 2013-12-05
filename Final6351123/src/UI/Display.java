@@ -4,9 +4,8 @@ import backend.Recommendation;
 
 
 public class Display
+
 {
-
-
 	static CompSystem selectedSystem;
 	static Recommendation myComponents;
 	
